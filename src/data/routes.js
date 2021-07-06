@@ -3,8 +3,8 @@ export default {
     path: '/',
     title: 'Home'
   },
-  About: {
-    path: '/about/',
-    title: 'About'
+  MarqueeMotion: {
+    path: '/marquee-motion/',
+    title: 'Marquee Motion'
   }
 };

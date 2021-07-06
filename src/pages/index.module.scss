@@ -3,7 +3,9 @@
 .Landing {
   > .hero {
     width: 100%;
-    color: #333;
+    color: $black;
+    max-width: px(800);
+    margin: 0 auto;
 
     > .title {
       font-family: WorkSansSemiBold;
@@ -11,50 +13,22 @@
       width: 100%;
       padding-top: px(80);
       padding-bottom: px(24);
-      letter-spacing: -1px;
-      line-height: 1.15;
-      font-size: px(48);
-    }
-
-    > .title,
-    > .description {
-      text-align: center;
+      @include font-size(36, 45, 1);
+      margin: 0 auto;
     }
 
     > .row {
-      max-width: px(800);
-      margin: px(80) auto px(40);
+      text-align: left;
+      margin: px(20) auto;
       display: flex;
-      align-items: stretch;
-      justify-content: space-around;
-      flex-wrap: wrap;
+      flex-direction: column;
 
       > li {
-        margin: px(10);
+        width: 100%;
+        margin-bottom: 0.5em;
 
-        .card {
-          display: block;
-          width: px(220);
-          height: 100%;
-          padding: px(18) px(18) px(24);
-          border: 1px solid #9b9b9b;
-          text-align: left;
-          text-decoration: none;
-          color: #434343;
-
-          &:hover {
-            border-color: #067df7;
-          }
-
-          > h3 {
-            font-size: px(18);
-          }
-
-          > p {
-            padding: px(12) 0 0;
-            font-size: px(13);
-            color: #333;
-          }
+        a {
+          color: blue;
         }
       }
     }

@@ -2,5 +2,5 @@
 export const resizeDebounceTime = 10; // in ms
 
 // head
-export const siteName = 'Jam3 Generator';
-export const siteSlogan = 'The Relentless Pursuit of Better';
+export const siteName = 'Dev Explorations';
+export const siteSlogan = 'Fancy stuff';

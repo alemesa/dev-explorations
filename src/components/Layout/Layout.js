@@ -1,18 +1,14 @@
 import React, { memo, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import checkProps from '@jam3/react-check-extra-props';
-import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 
 import { useDispatch } from 'react-redux';
 
 import Nav from '../Nav/Nav';
-import Footer from '../Footer/Footer';
 
 import { setPrevRoute, setIsWebpSupported } from '../../redux';
 import { checkWebpSupport } from '../../utils/detect';
-
-const RotateScreen = dynamic(() => import('../RotateScreen/RotateScreen'), { ssr: false });
 
 function Layout({ children }) {
   const dispatch = useDispatch();
@@ -41,8 +37,6 @@ function Layout({ children }) {
     <>
       <Nav />
       {children}
-      <Footer />
-      <RotateScreen />
     </>
   );
 }
