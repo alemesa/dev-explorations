@@ -12,50 +12,20 @@
 
 $base-path: '../assets/fonts/' !default;
 
-@font-face {
-  font-family: 'WorkSansLight';
-  font-style: normal;
-  font-weight: 300;
-  font-display: swap;
-  src: url('#{$base-path}WorkSans/WorkSans-Light.woff') format('woff');
-}
+@import url('https://fonts.googleapis.com/css2?family=Arvo&display=swap');
 
-@font-face {
-  font-family: 'WorkSansRegular';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('#{$base-path}WorkSans/WorkSans-Regular.woff') format('woff');
-}
+// @font-face {
+//   font-family: 'WorkSansLight';
+//   font-style: normal;
+//   font-weight: 300;
+//   font-display: swap;
+//   src: url('#{$base-path}WorkSans/WorkSans-Light.woff') format('woff');
+// }
 
-@font-face {
-  font-family: 'WorkSansMedium';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url('#{$base-path}WorkSans/WorkSans-Medium.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'WorkSansSemiBold';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url('#{$base-path}WorkSans/WorkSans-SemiBold.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'WorkSansBold';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url('#{$base-path}WorkSans/WorkSans-Bold.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'WorkExtraBold';
-  font-style: normal;
-  font-weight: 800;
-  font-display: swap;
-  src: url('#{$base-path}WorkSans/WorkSans-ExtraBold.woff') format('woff');
-}
+// @font-face {
+//   font-family: 'WorkSansRegular';
+//   font-style: normal;
+//   font-weight: 400;
+//   font-display: swap;
+//   src: url('#{$base-path}WorkSans/WorkSans-Regular.woff') format('woff');
+// }

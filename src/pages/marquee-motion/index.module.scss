@@ -1,33 +1,29 @@
-@import '../../styles/shared.scss';
+@import 'shared';
 
 @mixin font-type {
   white-space: nowrap;
-  font-size: 6vw;
+  font-size: 5vw;
   line-height: 1.2;
   font-weight: 600;
   padding: 1vh 1vw;
   text-transform: uppercase;
 }
 
-.About {
-  --color-border: #{$black};
-  --menu-focus: #{$black};
-  --color-link: #{$black};
-  --marquee-bg: #{$black};
-  --marquee-text: #{$white};
-
-  > .title {
-    margin: 0;
-    width: 100%;
-    padding-top: px(80);
-    @include font-size(36, 45, 1);
-  }
+.MarqueeMotion {
+  background-color: var(--orange4);
+  @include flex-center;
 
   .container {
-    border: 1px solid black;
+    width: 100%;
   }
 
   .item {
+    --color-border: #{$black};
+    --menu-focus: #{$black};
+    --color-link: #{$black};
+    --marquee-bg: #{$black};
+    --marquee-text: #{$white};
+
     cursor: default;
     position: relative;
     overflow: hidden;
@@ -63,8 +59,7 @@
       overflow: hidden;
 
       .marqueeInnerWrap {
-        height: 100%;
-        width: 100%;
+        @include box(100%);
         transform: translate3d(0, -101%, 0);
 
         .marqueeInner {
@@ -74,7 +69,6 @@
           display: flex;
           position: relative;
           animation: marquee 15s linear infinite;
-          will-change: transform;
 
           span {
             @include font-type;

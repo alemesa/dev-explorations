@@ -8,35 +8,54 @@ import styles from './index.module.scss';
 
 import Head from '../../components/Head/Head';
 
-function About({ className }) {
+function MarqueeMotion({ className }) {
   const containerRef = useRef();
 
   return (
-    <main className={classnames(styles.About, className)} ref={containerRef}>
-      <Head title="About" />
-      <h1 className={styles.title}>Marquee Motion Hover</h1>
+    <main className={classnames(styles.MarqueeMotion, className)} ref={containerRef}>
+      <Head title="Marquee Motion" />
       <div className={styles.container}>
-        <MarqueeItem title="Toronto" />
-        <MarqueeItem title="Palermo" />
-        <MarqueeItem title="Medellin" />
-        <MarqueeItem title="Sao Paulo" />
-        <MarqueeItem title="Paris" />
+        <MarqueeItem
+          title="Toronto"
+          items={['CN', 'Tower', 'Ontario', 'Canada', 'Blue Jays', 'Lorem Ipsum']}
+          index={0}
+        />
+        <MarqueeItem
+          title="Palermo"
+          items={['Pizza', 'Sicily', 'Romans', 'Italy', 'Mafia', 'Lorem Ipsum', 'Panettone']}
+          index={1}
+        />
+        <MarqueeItem
+          title="Medellin"
+          items={['Bandeja Paisa', 'Pablo Escobar', 'Envigado', 'Colombia', 'Antioquia', 'Lorem Ipsum']}
+          index={2}
+        />
+        <MarqueeItem
+          title="Rio di Janeiro"
+          items={['Carnival', 'Concert', 'Beach', 'Brazil', 'Ipanema', 'Lorem Ipsum']}
+          index={3}
+        />
+        <MarqueeItem
+          title="Paris"
+          items={['Eiffel', 'Tower', 'Napoleon', 'France', 'Notredame', 'Lorem Ipsum']}
+          index={4}
+        />
       </div>
     </main>
   );
 }
 
-About.propTypes = checkProps({
+MarqueeMotion.propTypes = checkProps({
   className: PropTypes.string
 });
 
-About.defaultProps = {};
+MarqueeMotion.defaultProps = {};
 
-export default memo(About);
+export default memo(MarqueeMotion);
 
 const animationDefaults = { duration: 0.6, ease: 'expo' };
 
-function MarqueeItem({ title }) {
+function MarqueeItem({ title, items, index }) {
   const mainRef = useRef(null);
 
   const marqueeRef = useRef(null);
@@ -75,7 +94,7 @@ function MarqueeItem({ title }) {
   );
 
   return (
-    <div className={styles.item} ref={mainRef}>
+    <div className={styles.item} ref={mainRef} key={index}>
       <span
         className={styles.itemLink}
         href="#"
@@ -88,70 +107,18 @@ function MarqueeItem({ title }) {
       <div className={styles.marquee} ref={marqueeRef}>
         <div className={styles.marqueeInnerWrap} ref={marqueeInnerRef}>
           <div className={styles.marqueeInner} aria-hidden="true">
-            <span>Frank Tower</span>
-            <img
-              className={styles.marqueeImg}
-              src="https://picsum.photos/150/100?random=9"
-              alt="W"
-              decoding="async"
-              loading="lazy"
-            />
-            <span>Dom Dom</span>
-            <img
-              className={styles.marqueeImg}
-              src="https://picsum.photos/150/100?random=10"
-              alt="W"
-              decoding="async"
-              loading="lazy"
-            />
-            <span>Santa Maria</span>
-            <img
-              className={styles.marqueeImg}
-              src="https://picsum.photos/150/100?random=11"
-              alt="W"
-              decoding="async"
-              loading="lazy"
-            />
-            <span>Big Molly</span>
-            <img
-              className={styles.marqueeImg}
-              src="https://picsum.photos/150/100?random=12"
-              alt="W"
-              decoding="async"
-              loading="lazy"
-            />
-            <span>Frank Tower</span>
-            <img
-              className={styles.marqueeImg}
-              src="https://picsum.photos/150/100?random=13"
-              alt="W"
-              decoding="async"
-              loading="lazy"
-            />
-            <span>Dom Dom</span>
-            <img
-              className={styles.marqueeImg}
-              src="https://picsum.photos/150/100?random=14"
-              alt="W"
-              decoding="async"
-              loading="lazy"
-            />
-            <span>Santa Maria</span>
-            <img
-              className={styles.marqueeImg}
-              src="https://picsum.photos/150/100?random=15"
-              alt="W"
-              decoding="async"
-              loading="lazy"
-            />
-            <span>Big Molly</span>
-            <img
-              className={styles.marqueeImg}
-              src="https://picsum.photos/150/100?random=16"
-              alt="W"
-              decoding="async"
-              loading="lazy"
-            />
+            {items.map((item, i) => (
+              <React.Fragment key={i}>
+                <span>{item}</span>
+                <img className={styles.marqueeImg} {...unsplashImage(i)} alt="Alt" decoding="async" loading="lazy" />
+              </React.Fragment>
+            ))}
+            {items.map((item, i) => (
+              <React.Fragment key={i + items.length}>
+                <span>{item}</span>
+                <img className={styles.marqueeImg} {...unsplashImage(i)} alt="Alt" decoding="async" loading="lazy" />
+              </React.Fragment>
+            ))}
           </div>
         </div>
       </div>
@@ -173,3 +140,9 @@ const distMetric = (x, y, x2, y2) => {
   const yDiff = y - y2;
   return xDiff * xDiff + yDiff * yDiff;
 };
+
+function unsplashImage(i) {
+  return {
+    src: `https://source.unsplash.com/random/500x500?sig=${i}`
+  };
+}

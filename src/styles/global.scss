@@ -5,6 +5,10 @@
 @import 'polyfills';
 @import 'shared';
 
+// Colours
+@import '@radix-ui/colors/yellow.css';
+@import '@radix-ui/colors/orange.css';
+
 html {
   box-sizing: border-box;
   -moz-osx-font-smoothing: grayscale;
@@ -41,12 +45,7 @@ body {
 
 main {
   min-height: 100vh;
-  padding-top: $navbar-height-mobile;
   @include z-index(pages);
-
-  @include breakpoint(desktopSm) {
-    padding-top: $navbar-height-desktop;
-  }
 }
 
 a {

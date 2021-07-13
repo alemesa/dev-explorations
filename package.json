@@ -55,6 +55,8 @@
     "@jam3/react-check-extra-props": "1.0.1",
     "@jam3/react-hooks": "1.0.0",
     "@jam3/stats": "1.0.1",
+    "@radix-ui/colors": "^0.1.7",
+    "@radix-ui/react-icons": "^1.0.3",
     "@reduxjs/toolkit": "^1.6.0",
     "classnames": "2.3.1",
     "default-passive-events": "2.0.0",

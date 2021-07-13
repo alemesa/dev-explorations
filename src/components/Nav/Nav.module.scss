@@ -2,17 +2,26 @@
 
 .Nav {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 0 px(20);
-  border-bottom: 1px solid rgba($black, 0.3);
-  background-color: $white;
+  top: px(5);
+  left: px(5);
+  width: fit-content;
+  padding: 0 px(15);
   @include z-index(main-nav);
-  @include flex-center-vert;
+  @include flex-center;
   height: $navbar-height-mobile;
+  background-color: var(--yellow6);
+  border: 2px solid rgba($black, 0.9);
 
   @include breakpoint(desktopSm) {
     height: $navbar-height-desktop;
+  }
+
+  a {
+    @include flex-center-vert;
+
+    svg {
+      width: px(20);
+      height: px(20);
+    }
   }
 }
