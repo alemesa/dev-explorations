@@ -1,85 +1,27 @@
-<p align="center">
-  <a href="https://terminalizer.com">
-    <img src="docs/logo.jpg"/>
-  </a>
-</p>
+# Dev Explorations
 
-# Jam3 NextJS Generator
+Small UI studies, built as a type-safe Vite application with TanStack Router.
 
-![GitHub](https://img.shields.io/github/license/jam3/nyg-nextjs)
-[![Codeship Status for Jam3/nyg-nextjs](https://app.codeship.com/projects/0fcd63a0-29d6-0138-cc17-02df0a7848fa/status?branch=master)](https://app.codeship.com/projects/384142)
+## Commands
 
-> Boilerplate for React, Static and Server Side Rendered projects with NextJS
+- `pnpm dev` — start the local app.
+- `pnpm build` — produce a production build and type-check it.
+- `pnpm lint` — run ESLint and Stylelint.
+- `pnpm format:check` — verify Prettier formatting.
+- `pnpm storybook` — inspect the presentational views in isolation.
 
-> https://generator.jam3.net
+## Architecture
 
-> Icon made by Pixel perfect from www.flaticon.com
+Routes live in `src/routes` and map one-to-one to URLs. Every component in `src/components` has exactly five files:
 
----
+1. `index.ts` public API
+2. `Component.controller.tsx` state and integration boundary
+3. `Component.view.tsx` pure presentational markup
+4. `Component.module.scss` scoped styles
+5. `Component.stories.tsx` isolated Storybook story
 
-# Table of Contents
+Create an isolated page with `pnpm create:project fancy-accordion`. It adds a `/fancy-accordion` TanStack route and a centered `PageFancyAccordion` component using the complete five-file structure.
 
-- [Installation](#installation)
-- [Usage](#usage)
-- [Release](#release)
-- [Contributing](#contributing)
-- [License](#license)
+## Deployment
 
-## Installation
-
-Clone the GitHub repository or Fork it, and start working righ away with it.
-
-```
-git clone https://github.com/Jam3/nyg-nextjs.git
-```
-
-### Set up CI/CD
-
-Deploying a static site is fairly simple, we are going to the set up for Codeship.
-
-#### 1. Create env variables with AWS Access Keys
-
-Create three environment variables based on `.env.codeship.[env].local.example`
-
-Files:
-
-- .env.codeship.dev.local
-- .env.codeship.stage.local
-- .env.codeship.prod.local
-
-> Note: The environment variable files **can't** be commited. Based on the name convention they are ignored by GIT.
-
-#### 2. Generate encrypted env variables
-
-Run `$ ./encrypt-env.sh`
-
-#### 3. Update S3 and Cloudfront environment variables in codeship-services.yml
-
-Update `S3_ORIGIN_BUCKET` and `DISTRIBUTION_ID` with your AWS information.
-
-#### 4. Create a Codeship Pro project in Codeship
-
-## Usage
-
-TBD: List commands in package.json
-
-## Release
-
-To releasing new versions we are using [standard-version](https://github.com/conventional-changelog/standard-version).
-
-Steps:
-
-1. When PRs/commits land to your master branch, select the Squash and Merge option.
-2. Add a title and body that follows the [Conventional Commits Specification](https://www.conventionalcommits.org).
-3. Run `$ git checkout master; git pull origin master`
-4. Run `$ npm run release`
-5. Run `$ git push --follow-tags origin master`
-
-## Contributing
-
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting
-pull requests.
-
-## License
-
-[MIT](LICENSE)
+Deploy directly to Vercel. The app has no required environment variables or deployment configuration.

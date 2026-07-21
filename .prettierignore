@@ -1,2 +1,4 @@
-package.json
-scripts/templates/*
+dist
+node_modules
+storybook-static
+src/routeTree.gen.ts

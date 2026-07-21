@@ -1,0 +1,4 @@
+interface:
+  display_name: "Create Isolated Project"
+  short_description: "Scaffold a centered route and page component"
+  default_prompt: "Use $create-isolated-project to create a new project named fancy-accordion."

@@ -1,0 +1,40 @@
+@import 'shared';
+
+.root {
+  display: flex;
+  flex: 1;
+  min-height: 100dvh;
+  padding: px(80) px(24) px(32);
+}
+
+.content {
+  width: 100%;
+  max-width: px(420);
+}
+
+.title {
+  margin-bottom: px(20);
+  font-size: px(20);
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+}
+
+.list {
+  display: grid;
+  gap: px(8);
+
+  a {
+    display: inline-block;
+    padding: px(4) 0;
+    font-size: px(16);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: px(3);
+    transition: opacity 160ms ease;
+
+    &:hover,
+    &:focus-visible {
+      opacity: 0.55;
+    }
+  }
+}
